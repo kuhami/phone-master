@@ -1,0 +1,43 @@
+
+<scroll-view bindscrolltolower="scrollLower"
+             bindscroll="scroll"
+             class="scroll-restaurants-list"
+             scroll-y="true"
+             style="height:100%">
+
+    <view class="head">
+        <view class="ipone">{{ipone}}</view>
+        <view class="area">{{area}}</view>
+        <view class="area">{{message}}</view>
+    </view>
+    <view class="sort-list">
+        <view class="sort">
+            <view>价格</view>
+            <view class="textMoney">{{price >= 10000 ? price/10000 + '万' : price + '元'}}</view>
+        </view>
+        <!--<view class="sort">-->
+            <!--<view>话费</view>-->
+            <!--<view class="textMoney">0</view>-->
+        <!--</view>-->
+        <view class="sort">
+            <view>低消</view>
+            <view class="textMoney">{{low}}元/月</view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="content_title">温馨提示</view>
+        <view class="content_text">1、联系客户确定号码是否存在。</view>
+        <view class="content_text">2、预约成功后，然后确定过户时间和营业厅地点。</view>
+        <view class="content_text">3、根据国家工信部相关规定，所有手机号码销售都需要提供身份证实名验证，到营业厅实名过户。</view>
+    </view>
+    <view class="foot_fix">
+        <view class="sort_fix" bindtap="goBack">
+            <image src="../../images/icon_home_active.png" style="width:46rpx;height:46rpx;vertical-align: middle;margin-top:10rpx;"/>
+            <view style="font-size:22rpx;">首页</view>
+        </view>
+        <view class="sort_fix">
+            <!--<view class="foot_button" bindtap="phoneCall">call</view>-->
+        </view>
+    </view>
+</scroll-view>
+

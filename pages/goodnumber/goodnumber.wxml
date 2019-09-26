@@ -1,0 +1,96 @@
+<import src="../common/sort_list.wxml"/>
+
+<view class="mask" hidden="{{mask1Hidden}}" bindtap="mask1Cancel">
+<!--<template is="sort_list" data="{{selected,sortSelected}}"/>-->
+<view class="overall-sort-list">
+    <block wx:for="{{sortList}}" wx:key="">
+        <view class="overall-sort" data-index="{{index}}"
+              bindtap="sortSelected">{{item.sort}}
+        </view>
+    </block>
+</view>
+</view>
+<view class="mask"
+      hidden="{{mask2Hidden}}" bindtap="mask2Cancel">
+<template is="sort_list" data="{{selected,sortSelected}}"/>
+<scroll-view class="filterList" scroll-y="true">
+    <view class="filterList-characteristic-title">商家特色</view>
+    <view class="filterList-characteristic-items">
+        <block wx:for="{{characteristicList}}" wx:key="">
+            <view class="filterList-characteristic-item {{characteristicSelected[index]==true?'characteristic-selected':''}}"
+                  catchtap="characteristicSelected" data-index="{{index}}">{{item.text}}
+            </view>
+        </block>
+    </view>
+    <view class="filterList-discount-title">优惠活动(单选)</view>
+    <view class="filterList-discount-items">
+        <block wx:for="{{discountList}}" wx:key="">
+            <view class="filterList-discount-item {{discountSelected==index?'discount-selected':''}}"
+                  catchtap="discountSelected" data-index="{{index}}">
+                <text class="filterList-discount-item-icon" style="background:{{item.iconColor}}">{{item.icon}}</text> <text style="margin-left:10rpx;">{{item.text}}</text>
+            </view>
+        </block>
+    </view>
+</scroll-view>
+<view class="filterList-footer">
+    <view class="filterList-footer-delect"
+          catchtap="clearSelectedNumb">清除筛选
+    </view>
+    <view class="filterList-footer-finish" bindtap="finish">完成
+        <view class="filterList-footer-finish-number" hidden="{{selectedNumb==0}}">{{selectedNumb}}
+        </view>
+    </view>
+</view>
+</view>
+
+<scroll-view bindscrolltolower="scrollLower"
+             bindscroll="scroll"
+             scroll-top="{{scrollTop}}"
+             class="scroll-restaurants-list"
+             scroll-y="true"
+             style="height:100%">
+
+<view class="heard">
+    <view class="search">
+        <view class="serch_content">
+            <i class="iconfont icon-search"></i>
+            <input type="number" class="search_input" bindinput="onInput" value="{{inputValue}}" placeholder="搜索你喜欢的数字"/>
+        </view>
+        <view class="btn" bindtap="onSerch">搜索</view>
+    </view>
+</view>
+<template is="sort_list" data="{{selected,sortSelected,drop}}"/>
+<view class="restaurantsList">
+    <block wx:for="{{iponeList}}" wx:key="">
+        <navigator url="/pages/iponedetails/iponedetails?ipone={{item.ipone}}&low={{item.low}}&price={{item.price}}&area={{item.area}}&message={{item.message}}">
+            <view class="restaurants-list">
+                <view class="restaurants-info">
+                    <view class="restaurants-info-name">{{item.ipone}}</view>
+                    <view class="restaurants-info-rating">
+                        <view class="restaurants-info-rating-stars">{{item.area}}</view>
+                    </view>
+                </view>
+                <view class="restaurants-distribution">
+                    <view class="restaurants-distribution-distance">
+                        ¥ {{item.price >= 10000 ? item.price /10000 + '万' : item.price}}
+                    </view>
+                    <view class="restaurants-distribution-time">
+                        {{item.low-0 ? '低消'+ item.low+'元/月' : '无低消'}}
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </block>
+    <view class="nodata {{noData ? 'show':'hidden'}}">
+            <image src="../../images/nodata.png"/>
+            <view>你喜欢的靓号不存在～～</view>
+    </view>
+</view>
+<view class="loading">{{loadingText}}</view>
+</scroll-view>
+
+<view class="widget-goTop" bindtap="goTop" wx:if="{{ BackTop }}">
+    <view class="gotop-wrap">
+        <image src="../../images/top.png"/>
+    </view>
+</view>

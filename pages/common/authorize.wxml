@@ -1,0 +1,11 @@
+<template name="authorize">
+    <view class="authorize-contianer">
+        <image class="authorize-icon" src="../../images/1.png"/>
+        <view class="auth-item">商城申请获取以下权限：</view>
+        <view class="auth-item">获取你的公开信息（头像、昵称等）</view>
+        <view class="btn-authorize">
+            <button open-type="openSetting" lang="zh_CN" bindgetuserinfo="onGotUserInfo">授权</button>
+        </view>
+    </view>
+</template>
+

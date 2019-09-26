@@ -1,0 +1,25 @@
+<template name="sort_list">
+    <view class="sort-list">
+        <view data-index="0"
+              bindtap="onTapTag"
+              class="sort {{selected == 0?'sort-active':''}}">
+            默认
+        </view>
+        <!--{{drop == 'drop' ? '../../images/drop.png': (drop == 'drop_up') ? '../../images/drop_up.png':'../../images/drop_down.png'}}-->
+        <view data-index="1"
+              bindtap="onTapTag"
+              class="sort {{selected == 1?'sort-active':''}}">
+            价格<image src="{{drop == 'drop' ? '../../images/drop.png': (drop == 'asc') ? '../../images/drop_up.png':'../../images/drop_down.png'}}"
+                     style="width:32rpx;height:32rpx;vertical-align: middle;"></image>
+        </view>
+        <!--<view class="sort"-->
+              <!--bindtap="onOverallTag">{{sortSelected}}-->
+            <!--<image src="../../images/drop_down.png"-->
+                   <!--style="width:20rpx;height:20rpx;"></image>-->
+        <!--</view>-->
+        <!--<view class="sort"-->
+        <!--bindtap="onFilter">筛选-->
+        <!--<image src="../../images/screen.png"-->
+        <!--style="width:22rpx;height:22rpx;"></image></view>-->
+    </view>
+</template>

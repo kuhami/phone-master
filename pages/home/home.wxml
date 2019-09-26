@@ -1,0 +1,34 @@
+
+<scroll-view bindscrolltolower="scrollLower"
+             bindscroll="scroll"
+             class="scroll-restaurants-list"
+             scroll-y="true"
+             style="height:100%">
+<view class="heard">
+    <view class="search">
+        <view class="serch_content">
+            <i class="iconfont icon-search"></i>
+            <input type="number" class="search_input" bindinput="onInput" value="{{inputValue}}" placeholder="搜索你喜欢的数字"/>
+        </view>
+        <view class="btn" bindtap="onSerch">马上搜索</view>
+    </view>
+</view>
+
+<!--手机靓号推荐-->
+<view class="header-title"> <text style="padding-left:20rpx;font-weight: 600;">手机靓号推荐</text> <text style="float:right; font-size:28rpx; color:#ff5923; padding-right:20rpx;" bindtap="onSerch">更多...</text></view>
+<view class="restaurantsList">
+    <block wx:for="{{iponeList}}" wx:key="">
+            <view class="restaurants-list">
+                <navigator class="restaurants-info" url="/pages/iponedetails/iponedetails?ipone={{item.ipone}}&low={{item.low}}&price={{item.price}}&area={{item.area}}&message={{item.message}}">
+                        <view class="restaurants-info-name">{{item.BreakData[0]}}<text style="color:red;">{{item.BreakData[1]}}</text>{{item.BreakData[2]}}</view>
+                        <view class="restaurants-info-rating">
+                            <view class="restaurants-info-rating-sales" style="color:#9711ff;">{{item.area ? item.area:'商丘本地'}}</view>
+                            <!--<view class="restaurants-info-rating-sales" >商丘本地{{item.low-0 ? '低消'+item.low+'元/月' : '无低消'}}</view>-->
+                            <view class="restaurants-info-rating-stars">¥{{item.price >= 10000 ? item.price/10000 + '万' : item.price}}</view>
+                        </view>
+                </navigator>
+            </view>
+    </block>
+    <view class="loading" bindtap="onSerch">查看更多靓号....</view>
+</view>
+</scroll-view>

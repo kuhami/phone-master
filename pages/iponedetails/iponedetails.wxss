@@ -1,0 +1,83 @@
+.head{
+  text-align: center;
+  margin: 40rpx auto;
+}
+.ipone{
+  color: #333;
+  font-size: 60rpx;
+  font-weight: 500;
+}
+.area{
+  margin: 0 60rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+.sort-list{
+  justify-content: space-around;
+  display: flex;
+  background: white;
+  width: 100%;
+  height: 120rpx;
+  font-size: 28rpx;
+  color: #6A6A6A;
+  align-content: center;
+  border: 1rpx solid #ECECEC;
+}
+.sort{
+  text-align: center;
+  margin: auto 0;
+  height: 80rpx;
+  line-height: 40rpx;
+  border-right: 1rpx solid #ECECEC;
+  flex: 1;
+}
+.textMoney{
+  font-size: 32rpx;
+  color: #E64340;
+  font-weight: 500;
+}
+.content{
+  width:90%;
+  margin:20rpx auto;
+}
+.content_title{
+  color: #999999;
+  font-size: 32rpx;
+}
+.content_text{
+  color: #333;
+  font-size: 28rpx;
+}
+.foot_fix{
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 10;
+  justify-content:space-around;
+  display:flex;
+  background:white;
+  font-size:28rpx;
+  color:#333;
+  align-content:center;
+  border:1rpx solid #ECECEC;
+}
+.sort_fix{
+  text-align: center;
+  margin: auto 0;
+  height: 100rpx;
+  /*line-height: 100rpx;*/
+  border-right: 1rpx solid #ECECEC;
+  flex: 1;
+}
+.foot_button{
+  width: 80%;
+  height: 80rpx;
+  border-radius:10rpx;
+  background: #E64340;
+  color: #fff;
+  margin: 10rpx auto;
+  line-height: 80rpx;
+}

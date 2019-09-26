@@ -1,0 +1,100 @@
+<view class="container">
+    <view class="header">
+        <!--<image  src="../../images/1.png"-->
+        <!--class="userImg"/>-->
+        <!--<view class="userName">宠物不用等</view>-->
+        <image  src="../../images/lh.jpg"
+                class="userImg"/>
+        <view class="userName">{{user.nickName}}</view>
+    </view>
+    <scroll-view scroll-y="true" style="height:{{windowHeight-150}}px">
+        <view class="info_block">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell" bindtap="addIpone">
+                    <view class="weui-cell__hd">
+                        <i class="iconfont icon-shezhi icon_color"></i>
+                    </view>
+                    <view class="weui-cell__bd">添加靓号</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+                <navigator url="/pages/deleteipone/deleteipone" class="weui-cell" hover-class="none">
+                    <view class="weui-cell__hd">
+                        <i class="iconfont icon-shezhi icon_color"></i>
+                    </view>
+                    <view class="weui-cell__bd">下架靓号</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="addIpone" wx:if="{{ addIpone }}">
+        <view class="addtitle">添加靓号</view>
+        <view class="add_content">
+            <view class="add_text"><text style="color:red;">*</text>手机号：</view>
+            <view class="add_input">
+                <input type="number" maxlength="11" data-name="ipone" bindinput="onInput" value="{{ipone}}" placeholder="请输入手机号"/>
+            </view>
+        </view>
+        <view class="add_content">
+            <view class="add_text"><text style="color:red;">*</text>价格：</view>
+            <view class="add_input">
+                <input type="number" data-name="price" bindinput="onInput" value="{{price}}" placeholder="请输入手机号价格"/>
+            </view>
+        </view>
+        <view class="add_content">
+            <view class="add_text"><text style="color:red;">*</text>低消：</view>
+            <view class="add_input">
+                <input type="number" data-name="low" bindinput="onInput" value="{{low}}" placeholder="请输入你的低消金额"/>
+            </view>
+        </view>
+        <view class="add_content">
+            <view class="add_text"><text style="color:red;"></text>归属地：</view>
+            <view class="add_radio">
+                <radio-group class="radio-group" bindchange="radioChange">
+                    <radio class="radio"
+                           color="#ff6a3c"
+                           wx:for-items="{{items}}"
+                           wx:key="name"
+                           value="{{item.name}}"
+                           checked="{{item.checked}}">
+                        <text>{{item.value}}</text>
+                    </radio>
+                </radio-group>
+            </view>
+        </view>
+        <!--<view class="add_content">-->
+            <!--<view class="add_text"><text style="color:red;"></text>备注：</view>-->
+            <!--<textarea bindinput="bindTextAreaBlur"-->
+                      <!--placeholder-class="placeholder_class"-->
+                      <!--placeholder="例如：号码归属地、寓意、套餐....（50字以内）"-->
+                      <!--cursor-spacing="130"-->
+                      <!--maxlength="50"/>-->
+        <!--</view>-->
+        <view class="add_footer">
+            <view class="add_button" bindtap="add_button">添加靓号</view>
+            <view class="cancel_button" bindtap="addIpone">取消</view>
+        </view>
+    </view>
+    <view class="login" wx:if="{{ addLogin }}">
+        <view class="addtitle" style="margin-top:20rpx;">数据管理</view>
+        <view class="add_content" style="margin-top:20%;">
+            <view class="add_text"><text style="color:red;">*</text>账号：</view>
+            <view class="add_input">
+                <input type="text" data-name="account" bindinput="onInputLogin" value="{{account}}" placeholder="请输入账号"/>
+            </view>
+        </view>
+        <view class="add_content">
+            <view class="add_text"><text style="color:red;">*</text>密码：</view>
+            <view class="add_input">
+                <input type="text" data-name="password" bindinput="onInputLogin" value="{{password}}" placeholder="请输入密码"/>
+            </view>
+        </view>
+        <view class="add_footer">
+            <view class="add_button" bindtap="add_Login">登录管理</view>
+            <!--<view class="cancel_button" bindtap="cancel_Login">取消</view>-->
+        </view>
+    </view>
+</view>
+
+
+

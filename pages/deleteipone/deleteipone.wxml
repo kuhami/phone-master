@@ -1,0 +1,82 @@
+<import src="../common/sort_list.wxml"/>
+
+<scroll-view bindscrolltolower="scrollLower"
+             bindscroll="scroll"
+             scroll-top="{{scrollTop}}"
+             class="scroll-restaurants-list"
+             scroll-y="true"
+             style="height:100%">
+
+<view class="heard">
+    <view class="search">
+        <view class="serch_content">
+            <i class="iconfont icon-search"></i>
+            <input type="number" class="search_input" bindinput="onInput" value="{{inputValue}}" placeholder="搜索你下架的号码"/>
+        </view>
+        <view class="btn" bindtap="onSerch">搜索</view>
+    </view>
+</view>
+<!--<template is="sort_list" data="{{selected,sortSelected,drop}}"/>-->
+<view class="restaurantsList">
+    <block wx:for="{{iponeList}}" wx:key="">
+        <view>
+            <view class="restaurants-list">
+                <view class="restaurants-info">
+                    <view class="restaurants-info-name">{{item.ipone}}</view>
+                    <view class="restaurants-info-rating">
+                        <view class="restaurants-info-rating-stars"><text style="color:#666;">{{item.area}}</text> {{item.low-0 ? '低消'+ item.low+'元/月' : '无低消'}} <text style="color:red;">¥{{item.price >= 10000 ? item.price /10000 + '万' : item.price}}</text></view>
+                    </view>
+                </view>
+                <view class="restaurants-distribution">
+                    <!--<view class="restaurants-distribution-distance" id="{{item._id}}"-->
+                          <!--data-ipone="{{item.ipone}}"-->
+                          <!--data-price="{{item.price}}"-->
+                          <!--data-low="{{item.low}}"-->
+                          <!--bindtap="updateIpone">-->
+                        <!--更新数据-->
+                    <!--</view>-->
+                    <view class="restaurants-distribution-distance"></view>
+                    <view class="restaurants-distribution-time" id="{{item._id}}" data-ipone="{{item.ipone}}" bindtap="deleteIpone">
+                        点击下架
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="nodata {{noData ? 'show':'hidden'}}">
+            <image src="../../images/nodata.png"/>
+            <view>你喜欢的靓号不存在～～</view>
+    </view>
+</view>
+<view class="loading">{{loadingText}}</view>
+</scroll-view>
+<view class="addIpone" wx:if="{{ updateIpone }}">
+<view class="addtitle">更新靓号信息</view>
+<view class="add_content">
+    <view class="add_text"><text style="color:red;">*</text>手机号：</view>
+    <view class="add_input">
+        <input type="number" maxlength="11" data-name="ipone" bindinput="onupInput" value="{{upIpone}}" placeholder="请输入手机号"/>
+    </view>
+</view>
+<view class="add_content">
+    <view class="add_text"><text style="color:red;">*</text>价格：</view>
+    <view class="add_input">
+        <input type="number" data-name="price" bindinput="onupInput" value="{{upPrice}}" placeholder="请输入手机号价格"/>
+    </view>
+</view>
+<view class="add_content">
+    <view class="add_text"><text style="color:red;">*</text>低消：</view>
+    <view class="add_input">
+        <input type="number" data-name="low" bindinput="onupInput" value="{{upLow}}" placeholder="请输入你的低消金额"/>
+    </view>
+</view>
+<view class="add_footer">
+    <view class="add_button" bindtap="add_button">更新靓号信息</view>
+    <view class="cancel_button" bindtap="updateIpone">取消</view>
+</view>
+</view>
+<view class="widget-goTop" bindtap="goTop" wx:if="{{ BackTop }}">
+    <view class="gotop-wrap">
+        <image src="../../images/top.png"/>
+    </view>
+</view>

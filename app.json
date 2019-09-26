@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/goodnumber/goodnumber",
+    "pages/datamanger/datamanger",
+    "pages/iponedetails/iponedetails",
+    "pages/deleteipone/deleteipone"
+  ],
+  "window": {
+    "navigationBarTitleText": "靓号",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ff6a3c",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/icon_home.png",
+        "selectedIconPath": "images/icon_home_active.png"
+      },
+      {
+        "pagePath": "pages/goodnumber/goodnumber",
+        "text": "靓号",
+        "iconPath": "images/icon_ipone.png",
+        "selectedIconPath": "images/icon_ipone_active.png"
+      },
+      {
+        "pagePath": "pages/datamanger/datamanger",
+        "text": "靓号管理",
+        "iconPath": "images/icon_manger.png",
+        "selectedIconPath": "images/icon_manger_active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

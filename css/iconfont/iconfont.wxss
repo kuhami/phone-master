@@ -1,0 +1,44 @@
+/*自建icon*/
+@font-face {
+  font-family: 'iconfont';  /* project id 1221347 */
+  src: url('//at.alicdn.com/t/font_1221347_uh0c5r8brrp.eot');
+  src: url('//at.alicdn.com/t/font_1221347_uh0c5r8brrp.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1221347_uh0c5r8brrp.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1221347_uh0c5r8brrp.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1221347_uh0c5r8brrp.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1221347_uh0c5r8brrp.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shanchu:before {
+  content: "\e61b";
+}
+
+.icon-location:before {
+  content: "\e651";
+}
+
+.icon-back:before{
+  content: "\e7c3";
+}
+
+.icon-shezhi:before{
+  content: "\e72a";
+}
+.icon-bindipone:before{
+  content: "\e62a";
+}
+.icon-notice:before{
+  content: "\e617";
+}
+/*羽毛笔*/
+.icon-toWrite:before{
+  content: "\e600";
+}
